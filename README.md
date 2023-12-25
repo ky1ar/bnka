@@ -8,7 +8,7 @@ Repo de la prueba técnica
 - Principios SOLID Aplicados.
 - Cálculos matemáticos en las operaciones bancarias.
 
-## Características
+## Validaciones
 
   ### Agregar Usuario
 - Campos vacios.
