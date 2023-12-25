@@ -1,0 +1,702 @@
+/*
+Theme Name: ky1ar
+Theme URI: 
+Author: Kenny Muñoz Serafin
+Author URI: https://munoz.pe
+Description: Prueba Técnica
+Version: 0.1
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+	--pri: #d82772;
+    --sec: #ed5d1f;
+	--zro: #000000;
+    --one: #101214;
+    --two: #1d1f21;
+    --thr: #25282a;
+    --for: #3f4346;
+    --fiv: #bfbfbf;
+    --wht: #ffffff;
+}
+*, 
+*:before, 
+*:after {
+    box-sizing: border-box;
+}
+::selection {
+    color: var(--pri) !important;
+    background-color: var(--one) !important;
+}
+a {
+    text-decoration: none;
+}
+img, 
+svg {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+/*********************************** START **********************************/
+body {
+	background-color: var(--one);
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--wht);
+    position: relative;
+    min-width: 22rem;
+}
+.ky1-wrp {
+	width: 100%;
+    margin: 0 auto;
+    max-width: 75rem;
+	padding: 0 1rem;
+}
+/*********************************** LOGIN **********************************/
+header {
+    padding: 1rem 0;
+}
+header .ky1-hdr {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--two);
+    border-radius: 0.75rem;
+}
+header .ky1-lft {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+header .ky1-lft img {
+    width: 4rem;
+}
+header .ky1-lft .ky1-txt {
+    display: flex;
+    flex-direction: column;
+}
+header .ky1-lft .ky1-txt span {
+    font-weight: 500;
+}
+header .ky1-lft .ky1-txt p {
+    margin: 0;
+    font-weight: 200;
+    opacity: 0.5;
+}
+header .ky1-rgt {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+header .ky1-rgt p {
+    margin: 0;
+    background-color: var(--one);
+    color: var(--pri);
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+header .ky1-rgt p img {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+header .ky1-rgt a {
+    background-color: var(--thr);
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 4rem;
+    justify-content: center;
+}
+header .ky1-rgt a img {
+    width: 1rem;
+}
+section .ky1-tbl {
+    background-color: var(--two);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+section .ky1-tbl .tbl-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .ky1-tbl .tbl-hdr h3 {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    gap: 0.25rem;
+    font-weight: 500;
+}
+section .ky1-tbl .tbl-hdr h3 p {
+    margin: 0;
+    font-weight: 200;
+    opacity: 0.75;
+    font-size: 0.85rem;
+}
+section .ky1-tbl .tbl-hdr .tbl-btn {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+section .ky1-tbl .tbl-hdr .tbl-btn form {
+    display: flex;
+}
+section .ky1-tbl .tbl-hdr .tbl-btn input {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--thr);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem 0 0 1rem;
+    width: 16rem;
+    color: var(--wht);
+    outline: none;
+}
+section .ky1-tbl .tbl-hdr .tbl-btn button {
+    background-color: var(--thr);
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0 1rem 0 0.5rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.25s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+}
+section .ky1-tbl .tbl-hdr .tbl-btn button:hover {
+    opacity: 0.6;
+}
+section .ky1-tbl .tbl-hdr #ky1-add {
+    font-size: 0.85rem;
+    background-color: var(--pri);
+    color: var(--wht);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 4rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
+}
+section .ky1-tbl .tbl-hdr #ky1-add:hover {
+    opacity: 0.75;
+}
+section .ky1-tbl .tbl-bdy .row-hdr {
+    text-align: left;
+}
+section .ky1-tbl .tbl-bdy tr:nth-child(even) {
+    background-color: var(--thr);
+    border-radius: 1rem;
+}
+section .ky1-tbl .tbl-bdy tr th {
+    padding: 0.5rem;
+}
+section .ky1-tbl .tbl-bdy tr td {
+    padding: 0.5rem;
+}
+#ky1-ovr {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--zro);
+    z-index: 3;
+    opacity: 0.5;
+    display: none;
+}
+/**********************************************/
+#usr-frm-edt {
+    background-color: var(--two);
+    padding: 1.5rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+#usr-frm-edt .usr-dat {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    align-items: center;
+}
+#usr-frm-edt .usr-dat li {
+    display: flex;
+    flex-direction: column;
+}
+#usr-frm-edt .usr-dat .usr-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: end;
+}
+#usr-frm-edt .usr-dat .usr-img {
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    background-color: var(--for);
+    border-radius: 2rem;
+    opacity: 0.75;
+}
+#usr-frm-edt .usr-dat h2 {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+#usr-frm-edt .usr-dat h3 {
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 300;
+}
+#usr-frm-edt input {
+    padding: 0.25rem 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--two);
+    border: none;
+    color: var(--wht);
+}
+#usr-frm-edt.frm-edt input {
+    background-color: var(--thr);
+}
+#usr-frm-edt input:focus {
+    outline: 1px solid var(--fiv);
+}
+#usr-upd {
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: var(--one);
+    color: var(--wht);
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+#upd-yes {
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: var(--pri);
+    color: var(--wht);
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+#upd-nop {
+    display: flex;
+    justify-content: center;
+    background-color: var(--one);    
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+#ky1-edt-msj {
+    color: var(--sec);
+    font-weight: 500;
+    text-align: center;
+}
+#btn-one {
+    width: 12rem;
+}
+#btn-two {
+    width: 12rem;
+    display: none;
+}
+
+.usr-trs {
+    background-color: var(--two);
+    padding: 1.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+    margin-bottom: 1rem;
+    border-top: 1px dashed #3a3a3a;
+}
+.usr-trs .trs-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.usr-trs .trs-non {
+    text-align: center;
+}
+.usr-trs .trs-hdr h3 {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    gap: 0.25rem;
+    font-weight: 500;
+}
+.usr-trs .trs-hdr h3 p {
+    margin: 0;
+    font-weight: 200;
+    opacity: 0.75;
+    font-size: 0.85rem;
+}
+#ky1-add-trs {
+    font-size: 0.85rem;
+    background-color: var(--sec);
+    color: var(--wht);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 4rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-in-out;
+}
+.usr-trs .tbl-bdy .row-hdr {
+    text-align: left;
+}
+.usr-trs .tbl-bdy tr th {
+    padding: 0.5rem;
+}
+.usr-trs .tbl-bdy tr:nth-child(even) {
+    background-color: var(--thr);
+    border-radius: 1rem;
+}
+.usr-trs .tbl-bdy tr td {
+    padding: 0.5rem;
+}
+.usr-trs .tbl-bdy tr td.ky1-in {
+    color: #00c361;
+}
+.usr-trs .tbl-bdy tr td.ky1-out {
+    color: #ff333a;
+}
+/**********************************************/
+#add-trs {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: var(--two);
+    z-index: 4;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    display: none;
+    color: var(--wht);
+}
+#add-trs .frm-cnt {
+    position: relative;
+}
+#add-trs .frm-cnt h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+#add-trs form {
+    width: 30rem;
+}
+#add-trs #ky1-trs-msj {
+    color: var(--sec);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#add-trs ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+#add-trs ul li.frm-50 {
+    width: 50%;
+}
+#add-trs .frm-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+#add-trs .frm-row label {
+    font-weight: 500;
+}
+#add-trs .frm-row input {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--thr);
+    border: none;
+    color: var(--wht);
+}
+#add-trs .frm-row input:focus {
+    outline: 1px solid var(--fiv);
+}
+#add-trs .frm-btn {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+#add-trs .frm-btn #trs-nop {
+    background-color: var(--one);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+#add-trs .frm-btn #trs-yes {
+    background-color: var(--sec);
+    color: var(--wht);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+#trs-cls {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+/**********************************************/
+
+#cfm-msg {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: var(--two);
+    z-index: 4;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    display: none;
+    color: var(--wht);
+}
+#cfm-msg .msg-cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 1.5rem;
+}
+#cfm-msg h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+#cfm-msg p {
+    margin: 0;
+}
+#cfm-msg .msg-btn {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+#cfm-msg .msg-btn #msg-nop {
+    background-color: var(--one);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    border: none;
+}
+#cfm-msg .msg-btn #msg-yes {
+    background-color: var(--pri);
+    color: var(--wht);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    flex: 1;
+}
+#msg-cls {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+#usr-del {
+    display: flex;
+    justify-content: center;
+    background-color: var(--pri);
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+/**********************************************/
+#add-frm {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background-color: var(--two);
+    z-index: 4;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    display: none;
+    color: var(--wht);
+}
+#add-frm .frm-cnt {
+    position: relative;
+}
+#add-frm .frm-cnt h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+#add-frm form {
+    width: 30rem;
+}
+#add-frm #ky1-frm-msj {
+    color: var(--sec);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#add-frm ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+#add-frm ul li.frm-20 {
+    width: 20%;
+}
+#add-frm ul li.frm-25 {
+    width: 25%;
+}
+#add-frm ul li.frm-30 {
+    width: 33.33%;
+}
+#add-frm ul li.frm-35 {
+    width: 35%;
+}
+#add-frm ul li.frm-40 {
+    width: 40%;
+}
+#add-frm ul li.frm-50 {
+    width: 50%;
+}
+#add-frm ul li.frm-55 {
+    width: 55%;
+}
+#add-frm ul li.frm-60 {
+    width: 60%;
+}
+#add-frm ul .frm-75 {
+    width: 75%;
+}
+#add-frm ul li.frm-100 {
+    width: 100%;
+}
+#add-frm .frm-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+#add-frm .frm-row label {
+    font-weight: 500;
+}
+#add-frm .frm-row input,
+#add-frm .frm-row select {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--thr);
+    border: none;
+    color: var(--wht);
+}
+#add-frm .frm-row input:focus,
+#add-frm .frm-row select:focus {
+    outline: 1px solid var(--fiv);
+}
+#add-frm .frm-btn {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+#add-frm .frm-btn #frm-nop {
+    background-color: var(--one);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+#add-frm .frm-btn #frm-yes {
+    background-color: var(--pri);
+    color: var(--wht);
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    width: 8rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+#frm-cls {
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

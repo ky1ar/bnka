@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Técnica</title>
+    <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="shortcut icon" type="image/x-icon" />
+    <link href="{{ url_for('static', filename='css/ky1ar.css')}}?v={{ version }}" rel="stylesheet" >
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/ky1ar.js')}}?v={{ version }}"></script>
+</head>
+<body>
+    <header>
+        <div class="ky1-wrp">
+            <div class="ky1-hdr">
+                <div class="ky1-lft">
+                    <a href="{{ url_for('home_route') }}"><img src="{{ url_for('static', filename='svg/logo.svg') }}" alt=""></a>
+                    <div class="ky1-txt">
+                        <span>Kenny Muñoz</span>
+                        <p>Prueba Técnica</p>
+                    </div>
+                </div>
+                <div class="ky1-rgt">
+                    {% if message %}
+                        <p><img src="{{ url_for('static', filename='svg/i.svg') }}" alt="">{{ message[0] }}</p>
+                    {% endif %}
+                    <a href="mailto:kenny@munoz.pe" target="_blank">
+                        <img src="{{ url_for('static', filename='svg/eml.svg') }}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% if user %}
+    <section>
+        <div class="ky1-wrp">
+            <form id="usr-frm-edt" method="post">
+                <div id="ky1-edt-msj"></div>
+                <ul class="usr-dat">
+                    <li class="usr-row">
+                        <img class="usr-img" src="{{ url_for('static', filename='svg/usr.svg') }}" alt="">
+                        <div class="usr-nme">
+                            <h2><input disabled id="usr-nme" type="text" name="name" value="{{user.name}}"></h2>
+                            <h3><input disabled type="text" name="last" value="{{user.last}}"></h3>
+                        </div>
+                    </li>
+                    <li>DNI<span><input disabled type="text" name="dni" value="{{user.dni}}"></span></li>
+                    <li>Nacimiento<span><input disabled type="date" name="date" value="{{user.date}}" min="" max=""></span></li>
+                    <li>Correo<span><input disabled type="text" name="email" value="{{user.email}}"></span></li>
+                    <li>Celular<span><input disabled type="text" name="phone" value="{{user.phone}}"></span></li>
+                    <li>Balance<span>$ {{user.amount}}</span></li>
+                    <li>
+                        <div id="btn-one">
+                            <div class="usr-row" >
+                                <div id="usr-upd" title="Prueba de Actualizar Usuario">Editar<img width="12" height="12" src="{{ url_for('static', filename='svg/sav.svg') }}" alt=""></div>
+                                <div id="usr-del" title="Prueba de Eliminar Usuario"><img width="12" height="12" src="{{ url_for('static', filename='svg/del.svg') }}" alt=""></div>
+                            </div>
+                        </div>
+                        <div id="btn-two">
+                            <div class="usr-row">
+                                <input disabled type="hidden" name="user_id" value="{{user.id}}">
+                                <button type="submit" id="upd-yes">Sí &#x2713;</button>
+                                <div id="upd-nop">No &#x2715;</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+
+            <div class="usr-trs">
+                <div class="trs-hdr">
+                    <h3>Transacciones:<p>Movimientos registrados en la cuenta del Usuario.</p></h3>
+                    <div id="ky1-add-trs"><img src="{{ url_for('static', filename='svg/pls.svg') }}" alt="" style="width: 1rem;">Nueva Transferencia</div>
+                </div>
+                {% if user.transactions %}
+                    <table class="tbl-bdy" border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <tr class="row-hdr">
+                            <th>N°</th>
+                            <th>Cuenta</th>
+                            <th>Monto</th>
+                            <th>Fecha y Hora</th>
+                        </tr>
+                        {% for transaction in user.transactions %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{ transaction.id }}</td>
+                            <td class="ky1-{{ 'out' if transaction.inout == 0 else 'in' }}">$ {{ transaction.amount }}</td>
+                            <td>{{ transaction.timestamp }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p class="trs-non">No hay transacciones para este usuario.</p>
+                {% endif %}
+            </div>
+
+            <div id="add-trs">
+                <div class="frm-cnt">
+                    <h2>Nueva Transferencia</h2>
+                    <form id="ky1-new-trs" method="post">
+                        <div id="ky1-trs-msj"></div>
+                        <ul>
+                            <li class="frm-50">
+                                <div class="frm-row">
+                                    <label for="">Cuenta</label>
+                                    <input id="ky1-act" type="text" name="account" placeholder="DNI Destinatario">
+                                </div>
+                            </li>
+                            <li class="frm-50">
+                                <div class="frm-row">
+                                    <label for="">Monto</label>
+                                    <input type="text" name="amount" placeholder="Monto a Tranferir">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="frm-btn">
+                            <div id="trs-nop">Cancelar</div>
+                            <input type="hidden" name="dni" value="{{user.dni}}">
+                            <button type="submit" id="trs-yes">Transferir</button>
+                        </div>
+                    </form>
+                    <img id="trs-cls" src="{{ url_for('static', filename='svg/x.svg') }}" alt="">
+                </div>
+            </div>
+
+            <div id="cfm-msg">
+                <form class="msg-cnt" method="post" action="/delete/{{user.id}}">
+                    <h2>¿Eliminar Usuario?</h2>
+                    <p>¡Cuidado! Este cambio no se puede revertir.</p>
+                    <div class="msg-btn">
+                        <div id="msg-nop">Cancelar</div>
+                        <input id="msg-chn" type="hidden" name="changer" value="3">
+                        <button type="submit" id="msg-yes" name="submit">Eliminar</button>
+                    </div>
+                    <img id="msg-cls" src="{{ url_for('static', filename='svg/x.svg') }}" alt="">
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <section>
+        <div class="ky1-wrp">
+            <div id="ky1-ovr"></div>
+            <div class="ky1-tbl">
+                <div class="tbl-hdr">
+                    <h3>Prueba de Obtención de Todos los Usuarios:<p>Listado de usuarios registrados en el sistema.</p></h3>
+                    <div class="tbl-btn">
+                        <form id="ky1-src" method="post" action="/user">
+                            <input id="ky1-src" type="text" name="dni" placeholder="Prueba de Obtención de Usuario:">
+                            <button type="submit" id="btn-src"><img src="{{ url_for('static', filename='svg/src.svg') }}" alt="" style="width: 1rem;">Buscar</button>
+                        </form>
+                        <div id="ky1-add"><img src="{{ url_for('static', filename='svg/pls.svg') }}" alt="" style="width: 1rem;">Añadir Usuario</div>
+                    </div>
+                    
+                </div>
+                <table class="tbl-bdy" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="row-hdr">
+                        <th>N°</th>
+                        <th>DNI</th>
+                        <th>Usuario</th>
+                        <th>Balance de cuenta</th>
+                    </tr>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{user.dni}}</td>
+                            <td>{{user.name}} {{user.last}}</td>
+                            <td>$ {{user.amount}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div id="add-frm">
+                <div class="frm-cnt">
+                    <h2>Prueba de Creación de Usuario</h2>
+                    <form id="ky1-add-user" method="post">
+                        <div id="ky1-frm-msj"></div>
+                        <ul>
+                            <li class="frm-20">
+                                <div class="frm-row">
+                                    <label for="">DNI</label>
+                                    <input id="ky1-dni" type="text" name="dni" placeholder="DNI">
+                                </div>
+                            </li>
+                            <li class="frm-40">
+                                <div class="frm-row">
+                                    <label for="">Nombres</label>
+                                    <input id="ky1-nme" type="text" name="name" placeholder="Ingresar Nombres">
+                                </div>
+                            </li>
+                            <li class="frm-40">
+                                <div class="frm-row">
+                                    <label for="">Apellidos</label>
+                                    <input id="ky1-lst" type="text" name="last" placeholder="Ingresar Apellidos">
+                                </div>
+                            </li>
+                            <li class="frm-35">
+                                <div class="frm-row">
+                                    <label for="">Fecha de Nacimiento</label>
+                                    <input id="ky1-dte" type="date" name="date" value="" min="" max="">
+                                </div>
+                            </li>
+                            <li class="frm-40">
+                                <div class="frm-row">
+                                    <label for="">Correo</label>
+                                    <input id="ky1-eml" type="email" name="email" placeholder="Ingresar correo">
+                                </div>
+                            </li>
+                            <li class="frm-25">
+                                <div class="frm-row">
+                                    <label for="">Celular</label>
+                                    <input id="ky1-phn" type="tel" name="phone" placeholder="Número">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="frm-btn">
+                            <div id="frm-nop">Cancelar</div>
+                            <button type="submit" id="frm-yes">Crear</button>
+                        </div>
+                    </form>
+                    <img id="frm-cls" src="{{ url_for('static', filename='svg/x.svg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
